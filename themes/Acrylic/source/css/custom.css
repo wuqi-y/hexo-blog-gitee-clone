@@ -698,7 +698,9 @@ a.bber-reply {
   padding-bottom: 70px;
 
 
-
+  #typing-animation {
+    color: #fff;
+  }
 
   #typing-animation p {
     /* display: flex; */

@@ -6,6 +6,8 @@ tags:
   - 前端
 date: 2023-08-01 11:33:00
 comment: true
+categories: 前端
+top: true
 ---
 
 ### Jenkins如何自动化部署前端项目

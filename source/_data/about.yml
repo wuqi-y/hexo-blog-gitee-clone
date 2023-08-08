@@ -51,16 +51,16 @@ skills:
     #   icon: "https://p.zhheo.com/20237359d71b45ab77829cee5972e36f8c30073902.png!cover"
     - title: "CSS3"
       color: "#2c51db"
-      icon: "https://p.zhheo.com/20237c548846044a20dad68a13c0f0e1502f074602.png!cover"
+      icon: "/img/image/c3.webp"
     - title: "JS"
       color: "#f7cb4f"
-      icon: "https://p.zhheo.com/2023786e7fc488f453d5fb2be760c96185c0075502.png!cover"
+      icon: "/img/image/js.webp"
     - title: "HTML"
       color: "#e9572b"
-      icon: "https://p.zhheo.com/202372b4d760fd8a497d442140c295655426070302.png!cover"
+      icon: "/img/image/h5.webp"
     - title: "Git"
       color: "#df5b40"
-      icon: "https://p.zhheo.com/2023ffa5707c4e25b6beb3e6a3d286ede4c6071102.png!cover"
+      icon: "/img/image/git.webp"
     # - title: "Rhino"
     #   color: "#1f1f1f"
     #   icon: "https://p.zhheo.com/20231ca53fa0b09a3ff1df89acd7515e9516173302.png!cover"
@@ -68,13 +68,13 @@ careers:
   title: "生涯"
   subtitle: "无限进步"
   items:
-    - school: "DLPU"
-      major: "产品设计专业"
-      color: "#357ef5"
-    - school: "ITSO"
-      major: "UI/产品经理"
-      color: "#eb372a"
-  image: "https://p.zhheo.com/20236d5152f4058d0b8b29185c7b71bbd74a071902.png!cover"
+    - school: " "
+      major: ""
+      color: ""
+    - school: ""
+      major: ""
+      color: ""
+  image: "/img/image/xhr.webp"
 
 personalities:
   tips: "性格"
@@ -134,7 +134,7 @@ oneself:
 
 tj: 
   url: https://v6-widget.51.la/v6/K0yfsHaZHpjPWap0/quote.js
-  img: https://bu.dusays.com/2023/03/12/640dc8c72f623.webp
+  img: 
 
 cause:
 

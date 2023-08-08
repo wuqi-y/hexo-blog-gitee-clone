@@ -13029,9 +13029,9 @@ a.bb-link-info:hover {
 
 .author-content-item.careers img {
   position: absolute;
-  left: 0;
-  bottom: 20px;
-  width: 100%;
+  right: 0;
+  bottom: 0;
+  width: 450px;
   transition: 0.6s;
 }
 

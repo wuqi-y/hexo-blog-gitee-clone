@@ -54,7 +54,8 @@ const textAnmition = () => {
     animate();
 }
 if (location.pathname === '/') {
-   timer = setInterval(() => {
+    timer = setInterval(() => {
+       if(!document.getElementById("text")) return
        if (document.getElementById("text").innerText === '_') {
         textAnmition()
     }

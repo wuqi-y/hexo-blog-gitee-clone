@@ -9,4 +9,4 @@ tags:
 title: 测试jenkins自动化
 updated: Tue, 22 Aug 2023 03:16:28 GMT
 ---
-🙄😡hahhahahahahh
+🙄😡我是自動部署的

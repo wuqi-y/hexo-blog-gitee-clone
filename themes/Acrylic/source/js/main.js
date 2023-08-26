@@ -63,6 +63,15 @@ if (location.pathname === '/') {
 }
 
 
+/**
+ * 雪花
+ */
+
+
+/**
+ * 雪花
+ */
+
 //点击下拉
 const downClickHandel = () => {
     const down = document.querySelector('#down')

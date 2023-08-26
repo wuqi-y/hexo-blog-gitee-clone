@@ -39,12 +39,12 @@ nav:
         全部标签:
           url: /tags/
           icon: fas fa-tags
-    # 友链:
-    #   url: false
-    #   child:
-    #     友链鱼塘:
-    #       url: /fcircle/
-    #       icon: fas fa-fish-fins
+    友链:
+      url: false
+      child:
+        友链鱼塘:
+          url: /fcircle/
+          icon: fas fa-fish-fins
     #     友情链接:
     #       url: /links/
     #       icon: fas fa-user-group
@@ -208,7 +208,7 @@ footer:
       文章归档: /archives/
       文章分类: /categories/
       文章标签: /tags/
-      友链: /link/
+      友链: /links/
     服务:
       51la统计: https://51.la/
       # 百度统计: https://tongji.baidu.com/
@@ -288,7 +288,7 @@ hightlight:
 
 # 加载动画
 loading:
-  fullpage: true
+  fullpage: false
   pace: true
 
 # 第三方设置

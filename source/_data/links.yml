@@ -1,0 +1,249 @@
+banner:
+      - name: Adil
+        link: https://blog.adil.com.cn
+        avatar: https://tucdn.wpon.cn/2023/04/06/15dbbb2004b44.jpg
+
+      - name: Akilar
+        link: https://akilar.top
+        avatar: https://bu.dusays.com/2022/08/14/62f87864834ae.png
+
+      - name: 张洪Heo
+        link: https://blog.zhheo.com
+        avatar: https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png
+
+      - name: 安知鱼`Blog
+        link: https://anzhiy.cn
+        avatar: https://image.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg
+
+      - name: Leonus
+        link: https://blog.leonus.cn
+        avatar: https://q1.qlogo.cn/g?b=qq&nk=553344777&s=5
+
+      - name: 轻笑Chuckle
+        link: https://www.chuckle.top
+        avatar: https://cdn1.tianli0.top/npm/chuckle-js-css/chuckle/head.webp
+
+      - name: Ariasakaの小窝
+        link: https://yisous.xyz
+        avatar: https://bu.dusays.com/2022/10/22/6352dfd1f3fa3.png
+
+      - name: Tianli
+        link: https://tianli-blog.club
+        avatar: https://img1.tianli0.top/logo.png
+
+      - name: 葱苓
+        link: https://blog.itciraos.cn
+        avatar: https://bu.dusays.com/2023/01/07/63b96bd7565ce.png
+
+      - name: 小N同学
+        link: https://www.nesxc.com
+        avatar: https://public.cdn.nesxc.com/avatar.jpg
+
+      - name: Fomalhaut??
+        link: https://www.fomal.cc
+        avatar: https://www.fomal.cc/assets/head.jpg
+
+      - name: Vincent文朔
+        link: https://blog.vincent1230.top
+        avatar: //a.vincent1230.top/blogrol/avatar.jpg
+
+      - name: Hc's Blog
+        link: https://blog.ivil.top
+        avatar: https://blog.ivil.top/img/logo.png
+
+      - name: 小城故事
+        link: https://www.webxc.ml
+        avatar: https://npm.elemecdn.com/webxc/logo/logo.jpg
+
+      - name: 花语阁
+        link: https://www.pigax.cn
+        avatar: http://q1.qlogo.cn/g?b=qq&nk=2033008907&s=640
+
+      - name: 虫不知喔
+        link: https://blog.ssycs.com
+        avatar: https://blog.ssycs.com/image/avatar.png
+
+      - name: Ice の小站
+        link: https://081113.xyz
+        avatar: https://api.ixiaowai.cn/gqapi/gqapi.php
+
+      - name: Nuyoah
+        link: https://262259.xyz
+        avatar: https://q1.qlogo.cn/g?b=qq&nk=2152889763&s=100
+
+      - name: 呆鱼
+        link: https://daiyu-233.top
+        avatar: https://daiyu-233.top/img/avatar.png
+
+      - name: Mghy の Blog
+        link: https://lmghy.top
+        avatar: https://cdn.staticaly.com/gh/MGHYGitHub/image-hosting@master/image-hosting/36d6c6eb3a95cbd0bdc4a70b221c5a6.7l7dzzhg0k00.webp
+
+      - name: Rainx’s Blog
+        link: https://rainxblog.top
+        avatar: https://rainxblog.top/wp-content/uploads/2022/11/head.jpg
+        
+      - name: LyShark - 孤风洗剑
+        link: https://www.lyshark.com
+        avatar: https://www.lyshark.com/images/baidu_logo.png
+        
+      - name: lmx0
+        link: https://www.lmx0.top/
+        avatar: https://s1.vika.cn/space/2023/01/08/ccf7921738f741dbbd0a261c4b8fce1c
+
+links:  
+  - class_name: 大佬们
+    descr: 一些大佬
+    type: card
+    link_list:
+      - name: Adil
+        link: https://blog.adil.com.cn
+        avatar: https://tucdn.wpon.cn/2023/04/06/15dbbb2004b44.jpg
+        descr: BW/HANA顾问,BI工程师,数据分析师,数据科学家。
+        topimg: https://tucdn.wpon.cn/2023/04/06/126fba2e88c54.png
+        
+      - name: Akilar
+        link: https://akilar.top
+        avatar: https://bu.dusays.com/2022/08/14/62f87864834ae.png
+        topimg: /img/acrylic.png
+        descr: 欢迎光临糖果屋
+        rss: /atom.xml
+
+      - name: 张洪Heo
+        link: https://blog.zhheo.com
+        avatar: https://img.zhheo.com/i/2022/08/19/62ff32fa28da1.png
+        topimg: /img/acrylic.png
+        descr: 分享设计与科技生活
+        rss: /rss.xml
+
+      - name: 安知鱼`Blog
+        link: https://anzhiy.cn
+        avatar: https://image.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg
+        topimg: /img/acrylic.png
+        descr: 生活明朗，万物可爱
+        tag: 技术
+        rss: /atom.xml
+
+      - name: Leonus
+        link: https://blog.leonus.cn
+        avatar: https://q1.qlogo.cn/g?b=qq&nk=553344777&s=5
+        topimg: /img/acrylic.png
+        descr: 进一寸有进一寸的欢喜。
+        tag: 技术
+        rss: /atom.xml
+
+      - name: 轻笑Chuckle
+        link: https://www.chuckle.top
+        avatar: https://cdn1.tianli0.top/npm/chuckle-js-css/chuckle/head.webp
+        topimg: /img/acrylic.png
+        descr: 宁静致远,倾尘轻笑
+        tag: 技术
+        rss: /atom.xml
+
+      - name: Ariasakaの小窝
+        link: https://yisous.xyz
+        avatar: https://bu.dusays.com/2022/10/22/6352dfd1f3fa3.png
+        topimg: /img/acrylic.png
+        descr: 人有悲欢离合 月有阴晴圆缺
+        tag: 技术
+        rss: /atom.xml
+
+  - class_name: 朋友们
+    descr: 一些志同道合的朋友
+    type: item
+    link_list:
+      - name: Tianli
+        link: https://tianli-blog.club
+        avatar: https://img1.tianli0.top/logo.png
+        descr: 惟其不可能，所以才相信。
+        rss: /feed/
+
+      - name: 葱苓
+        link: https://blog.itciraos.cn
+        avatar: https://bu.dusays.com/2023/01/07/63b96bd7565ce.png
+        descr: Dare && Do
+        rss: /atom.xml
+
+      - name: 小N同学
+        link: https://www.nesxc.com
+        avatar: https://public.cdn.nesxc.com/avatar.jpg
+        descr: 青石落晚巷 故人未还乡
+        rss: /feed/
+
+      - name: Fomalhaut??
+        link: https://www.fomal.cc
+        avatar: https://www.fomal.cc/assets/head.jpg
+        descr: Future is now ??????
+        rss: /atom.xml
+
+      - name: Vincent文朔
+        link: https://blog.vincent1230.top
+        avatar: //a.vincent1230.top/blogrol/avatar.jpg
+        descr: 太阳出来了 雾就会散的
+        rss: /feed/
+
+      - name: Hc's Blog
+        link: https://blog.ivil.top
+        avatar: https://blog.ivil.top/img/logo.png
+        descr: 不一定是完美的
+        rss: /atom.xml
+
+      - name: 小城故事
+        link: https://www.webxc.ml
+        avatar: https://npm.elemecdn.com/webxc/logo/logo.jpg
+        descr: 欢迎光临小城故事
+        rss:
+
+      - name: 花语阁
+        link: https://www.pigax.cn
+        avatar: http://q1.qlogo.cn/g?b=qq&nk=2033008907&s=640
+        descr: 花语清城 江无月
+        rss:
+
+      - name: 虫不知喔
+        link: https://blog.ssycs.com
+        avatar: https://blog.ssycs.com/image/avatar.png
+        descr: 我要的正能量会发光！
+        rss: /feed/
+
+      - name: Ice の小站
+        link: https://081113.xyz
+        avatar: https://api.ixiaowai.cn/gqapi/gqapi.php
+        descr: 海内存知己，天涯若比邻
+        rss: /atom.xml
+
+      - name: Nuyoah
+        link: https://262259.xyz
+        avatar: https://q1.qlogo.cn/g?b=qq&nk=2152889763&s=100
+        descr: 以梦为马，不负韶华
+        rss: /atom.xml
+
+      - name: 呆鱼
+        link: https://daiyu-233.top
+        avatar: https://daiyu-233.top/img/avatar.png
+        descr: 命运之所以称为命运，正是因为它无可改变。
+        rss: /atom.xml
+
+      - name: Mghy の Blog
+        link: https://lmghy.top
+        avatar: https://cdn.staticaly.com/gh/MGHYGitHub/image-hosting@master/image-hosting/36d6c6eb3a95cbd0bdc4a70b221c5a6.7l7dzzhg0k00.webp
+        descr: 为了明天的摸鱼所以现在摸鱼 ing
+        rss:
+
+      - name: Rainx’s Blog
+        link: https://rainxblog.top
+        avatar: https://rainxblog.top/wp-content/uploads/2022/11/head.jpg
+        descr: 幸与不幸都有尽头
+        rss: /feed/
+        
+      - name: LyShark - 孤风洗剑
+        link: https://www.lyshark.com
+        avatar: https://www.lyshark.com/images/baidu_logo.png
+        descr: 道，可道，非常道；名，可名，非常名。—— 老子《道德经》
+        rss:
+
+      - name: lmx0
+        link: https://www.lmx0.top/
+        avatar: https://s1.vika.cn/space/2023/01/08/ccf7921738f741dbbd0a261c4b8fce1c
+        descr: 学如逆水行舟，不进则退。
+        rss:

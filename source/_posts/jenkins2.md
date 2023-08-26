@@ -1,31 +1,40 @@
 ---
-title: Jenkins如何自动化部署前端项目(2)
-cover: /img/image/9.jpg
-tags:
-  - 运维
-  - 前端
-date: 2023-08-01 11:33:00
+abbrlink: ''
+categories: []
 comment: true
+cover: /img/image/9.jpg
+date: '2023-08-01 11:33:00'
 recommend: true
+tags:
+- 运维
+- 前端
+title: Jenkins如何自动化部署前端项目(2)
+updated: Sat, 26 Aug 2023 16:22:26 GMT
 ---
-
 ### Jenkins如何自动化部署前端项目
 
- 前置步骤我们都操作完了，这篇开始介绍jenkins的是哟。话不多说，看操作(没安装的请看我主页有详细的安装教程)
+前置步骤我们都操作完了，这篇开始介绍jenkins的是哟。话不多说，看操作(没安装的请看我主页有详细的安装教程)
 
 1、登录进入jenkins后会让你选择安装插件，选择第一个默认的就行。
- 
+
 2、配置JDK和Git都需要执行路径，所以需要先把执行路径找到，先进入服务器的终端界面执行
->JDK的路径
+
+> JDK的路径
+
 ```
  echo $JAVA_HOME
 ```
+
+如果是空记得先去设置java的环境变量 `which java` 查看java的安装路径
+
 ![jdk路径](/img/j/1.png)
 
->Git的路径
+> Git的路径
+
 ```
  which git
 ```
+
 ![git路径](/img/j/2.png)
 
 3、先配置JDK和Git。点击：Manage Jenkins>>Global Tool Configuration
@@ -43,6 +52,7 @@ recommend: true
 ![](/img/j/6.png)
 
 ### 安装插件
+
 安装插件，点击Manage Jenkins>>Manage Plugins，点击可选插件
 
 ![](/img/j/7.png)
@@ -64,7 +74,30 @@ recommend: true
 安装 Publish over SSH 插件
 ![](/img/j/13.png)
 
+
+#### 必须要配置name和email，为了让每一次提交的代码都能配置到用户
+
+```cmd
+git config --global user.name "jenkins_git"
+git config --global user.email "wuqi_y@163.com"
+```
+
+生成证书 绑定gitee或者github
+
+## SSH公钥
+
+```
+# 生成ssh连接所需的证书
+ssh-keygen -t rsa -C "wuqi_y@163.com"
+```
+
+### 将证书配置到git上。
+
+  登录github或gitee，这里我以gitee为例，步骤如下：
+  登录并进入gitee个人设置 – 点击“SSH公钥”侧边栏 – 输入标题 – 黏贴刚才在linux上生成id_rsa.pub文件内容后保存。
+
 ### 添加Gitee配置（Manage Jenkins>>Configure System>>Gitee 配置）
+
 ![](/img/j/14.png)
 
 ![](/img/j/15.png)
@@ -77,6 +110,7 @@ recommend: true
 ![](/img/j/20.png)
 ![](/img/j/21.png)
 可根据自己需要更改(记得安装Node哦)
+
 ```cmd
 # 在执行过程中若遇到使用了未定义的变量或命令返回值为非零，将直接报错退出
 set -eu
@@ -94,8 +128,6 @@ sudo rm -rf /www/wwwroot/test-jenks/*
 # 再将新数据拷贝到nginx下
 sudo cp -r dist/* /www/wwwroot/test-jenks/
 ```
+
 最后执行即可
 ![](/img/j/22.png)
-
-
-

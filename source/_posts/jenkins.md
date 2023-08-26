@@ -1,56 +1,55 @@
 ---
-title: Jenkins如何自动化部署前端项目(安装Jenkins)
-cover: /img/image/6.jpg
-tags:
-  - 运维
-  - 前端
-date: 2023-08-01 11:33:00
+abbrlink: ''
+categories:
+- 前端
 comment: true
-categories: 前端
-top: true
+cover: /img/image/6.jpg
+date: '2023-08-01 11:33:00'
 recommend: true
+tags:
+- 运维
+- 前端
+title: Jenkins如何自动化部署前端项目(安装Jenkins)
+top: true
+updated: Sat, 26 Aug 2023 16:05:39 GMT
 ---
-
 ### Jenkins如何自动化部署前端项目
 
- 首先你需要在你的云服务器上安装java环境以及maven才能继续安装Jenkins
+#### 1、安装JDK 11 这里我们通过yum 系统Centos 8.4.64
 
-#### 1、安装JDK
- 通过yum安装的默认路径为： `usr/lib/jvm`
- 
-安装命令：```yum -y install java-1.8.0-openjdk*```
-
-在 `usr/lib/jvm` 文件最后加入以下代码配置环境变量
-
+1. 首先，确保你的系统已经更新到最新的软件包列表。可以运行以下命令来更新软件包列表：
 
 ```cmd
-cat>> /etc/profile <<EOF
-############################## ↓↓↓↓↓↓ set java environment ↓↓↓↓↓↓ #############################
-JAVA_HOME=/usr/lib/jvm/java
-CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/jre/lib/rt.jar
-PATH=$PATH:$JAVA_HOME/bin
-export JAVA_HOME CLASSPATH PATH
-###############################################################################################
-EOF
+sudo yum update
 ```
 
- ###### 查看环境变量
- 
- ```cmd
- echo $JAVA_HOME
- echo $PATH
+###### 安装JDK 11
+
+```cmd
+sudo yum install java-11-openjdk-devel
 ```
- ###### 验证Java是否安装成功
- 
- ```cmd
-java
-javac
+
+2. 安装过程中，系统会提示你确认是否继续安装。输入`Y`并按下Enter键，然后等待安装完成。
+
+4. 安装完成后，可以使用以下命令来验证JDK 11的安装：
+
+###### 验证Java是否安装成功
+
+```cmd
 java -version
 ```
 
- ###### 卸载Jdk
- 
- ```cmd
+输出应该显示类似以下内容：
+
+```cmd
+openjdk version "11.x.x" 2021-XX-XX
+OpenJDK Runtime Environment (build 11.x.x+XX-XXXX)
+OpenJDK 64-Bit Server VM (build 11.x.x+XX-XXXX, mixed mode, sharing)
+```
+
+###### 卸载Jdk
+
+```cmd
 # 查看CentOS自带JDK是否已安装:
 yum list installed | grep java
 # 如果存在自带的jdk，删除自带的jdk
@@ -58,67 +57,33 @@ yum -y remove java-1.8.0-openjdk*
 yum -y remove tzdata-java.noarch
 ```
 
-#### 2、安装maven
+#### 2、安装Jenkins
+
+首先，添加Jenkins的官方软件包源。打开终端窗口，并使用以下命令导入Jenkins的GPG密钥：
 
 ```cmd
-# 安装yum配置工具
-yum install -y yum-utils
-# 使用配置工具配置第三方epel源仓库
-yum-config-manager --add-repo http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo
-yum-config-manager --enable epel-apache-maven
-# 安装maven
-yum install -y apache-maven
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat/jenkins.repo
+
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
 ```
 
-###### 配置环境变量
-在 `/etc/profile` 文件最后加入
+然后安装  安装过程中，系统会提示你确认是否继续安装。输入`Y`并按下Enter键，然后等待安装完成 
+
+`sudo yum install jenkins`
+
+###### 启动命令
+
+您可以使用以下命令启动 Jenkins 服务：
+
 ```cmd
-############################## ↓↓↓↓↓↓ set maven environment ↓↓↓↓↓↓ #############################
-MAVEN_HOME=/home/soft/maven/apache-maven-3.8.8
-PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin
-export MAVEN_HOME PATH
-################################################################################################
+sudo systemctl start jenkins
 ```
 
-###### 验证   `mvn -v`
+###### 您可以使用以下命令检查 Jenkins 服务的状态：
 
+`sudo systemctl status jenkins`
 
-###### maven配置
-
-在`
-/home/soft/maven/apache-maven-3.8.8/conf/settings.xml
-`文件中
-###### 配置仓库信息如下：
-```xml
-<!-- /home/soft/maven/apache-maven-3.8.8/conf/settings.xml -->
-<localRepository>/home/soft/maven/repository</localRepository>
-```
-##### 配置阿里中央仓库
-```xml
-<!-- /home/soft/maven/apache-maven-3.8.8/conf/settings.xml -->
-<mirrors>
-    <!-- 国内中央仓库的配置-阿里云中央仓库 -->
-    <mirror>
-        <id>nexus-aliyun</id>
-        <mirrorOf>central</mirrorOf>
-        <name>Nexus aliyun</name>
-        <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-    </mirror>
-</mirrors>
-```
-##### 以上操作完成并成功既可安装Jenkins（注意安装版本，我演示的版本为jdk8,最新版不支持jdk8）
-
-下载旧版本Jenkins
-```cmd
-wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat-stable/jenkins-2.346.3-1.1.noarch.rpm
-```
-安装下载rpm包
-```cmd
-yum -y install jenkins-2.346.3-1.1.noarch.rpm
-```
-查看Jenkins状态
-```cmd
-systemctl status jenkins
-```
 如下：
+
 ![图](/img/demo.png)

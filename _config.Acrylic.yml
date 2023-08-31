@@ -268,15 +268,15 @@ about: true
 
 # 404页面
 errorpage:
-  img: /img/acrylic.png
+  img: /img/image/8.jpg
   text: =awa= 页面走丢了
   recommendList: true
 
 # 懒加载
 lazyload:
-  enable: false
-  placeholder: /img/acrylic.png
-  errorimg: /img/acrylic.png
+  enable: true
+  placeholder: /img/image/8.jpg
+  errorimg: /img/image/8.jpg
 
 # 图片灯箱
 lightbox: true

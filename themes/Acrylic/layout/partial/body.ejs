@@ -1,9 +1,35 @@
 <div>
     <script type="text/javascript" src="/js/utils.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/echo.js"></script>
+    <script>
+        echo.init({
+            offset: 10,
+            throttle: 250,
+            unload: false,
+            debounce: false,
+            callback: function (element, op) {
+                // console.log(element, 'has been', op + 'ed')
+            }
+        });
+        window.addEventListener('popstate', function (event) {
+            // 处理路由变化的逻辑
+            echo.init({
+                offset: 10,
+                throttle: 250,
+                unload: false,
+                debounce: false,
+                callback: function (element, op) {
+                    // console.log(element, 'has been', op + 'ed')
+                }
+            });
+        });
+
+
+    </script>
     <%- partial('partial/compoment/inject/body', {cache: true}) %>
-    <%- partial('partial/compoment/third-party/pjax', {cache: true}) %>
-    <% if (theme.extends.body) for (const i of theme.extends.body){ %>
-        <%- i %>
-    <% } %>
+        <%- partial('partial/compoment/third-party/pjax', {cache: true}) %>
+            <% if (theme.extends.body) for (const i of theme.extends.body){ %>
+                <%- i %>
+                    <% } %>
 </div>

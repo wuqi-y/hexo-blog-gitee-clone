@@ -1,5 +1,5 @@
 <%if(theme.hometop.middleBander){ %>
-    <div id="banner" style="background-image: url('<%= theme.hometop.middleBanderUrl %>')">
+    <div id="banner" style="background-image: url('<%= theme.hometop.middleBanderUrl %>');filter: blur(45px);">
         <div id="typing-animation" style="color: #fff;">
             <p id="title" style="font-size: 1.8467rem;">
                 <%= theme.hometop.text %>
@@ -43,6 +43,10 @@
         </main>
 
         <style>
+            #banner {
+                transition: all .3s;
+            }
+
             #typing-animation {
                 color: #fff;
             }
@@ -79,3 +83,13 @@
                 }
             }
         </style>
+
+        <script>
+            function loadBannerHandel () {
+                const image = new Image();
+                image.onload = () => document.querySelector('#banner').style.filter = 'blur(0px)'
+                image.src = '<%= theme.hometop.middleBanderUrl %>'
+            }
+            window.addEventListener('popstate', loadBannerHandel());
+            loadBannerHandel()
+        </script>

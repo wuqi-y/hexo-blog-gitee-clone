@@ -274,7 +274,7 @@ errorpage:
 
 # 懒加载
 lazyload:
-  enable: true
+  enable: false
   placeholder: /img/image/8.jpg
   errorimg: /img/image/8.jpg
 

@@ -275,13 +275,8 @@ errorpage:
 # 懒加载
 lazyload:
   enable: false
-<<<<<<< HEAD
-  placeholder: /img/image/8.jpg
-  errorimg: /img/image/8.jpg
-=======
   placeholder: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/8.jpg
   errorimg: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/8.jpg
->>>>>>> 71367e89612b373e8028b4a03e1756886159d409
 
 # 图片灯箱
 lightbox: true
@@ -293,7 +288,7 @@ hightlight:
 
 # 加载动画
 loading:
-  fullpage: true
+  fullpage: false
   pace: true
 
 # 第三方设置

@@ -2,7 +2,7 @@
 abbrlink: WuQi
 categories:
 - - 测试分类
-cover: /img/image/4.jpg
+cover: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/4.jpg
 date: '2023-08-10 10:44:11'
 tags:
 - 测试标签

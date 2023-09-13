@@ -2,7 +2,7 @@
 abbrlink: ''
 categories: []
 comment: true
-cover: /img/image/9.jpg
+cover: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/9.jpg
 date: '2023-08-01 11:33:00'
 recommend: true
 tags:

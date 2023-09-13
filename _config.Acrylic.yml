@@ -69,7 +69,7 @@ nav:
 hometop:
   bbtime: true
   middleBander: true #自定义中部banner是否显示
-  middleBanderUrl: /img/image/7.jpg
+  middleBanderUrl: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/7.jpg
   text: 我思故我在
   banner:
     enable: true
@@ -131,7 +131,7 @@ hometop:
     sup: 置顶文章
     title: 让Acrylic成为您的Hexo主题
     url: /
-    img: /img/image/11.jpg
+    img: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/11.jpg
     color: '#8d6338'
     recommend: true
 
@@ -237,13 +237,13 @@ page:
   error: true
   tags: true
   categories: true
-  cover: /img/image/9.jpg
+  cover: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/9.jpg
 
 
 # 文章页默认设置
 post:
   default:
-    cover: /img/image/2.jpg
+    cover: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/2.jpg
     locate: 河南
     copyright: 原创
   meta:
@@ -268,15 +268,20 @@ about: true
 
 # 404页面
 errorpage:
-  img: /img/image/8.jpg
+  img: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/8.jpg
   text: =awa= 页面走丢了
   recommendList: true
 
 # 懒加载
 lazyload:
   enable: false
+<<<<<<< HEAD
   placeholder: /img/image/8.jpg
   errorimg: /img/image/8.jpg
+=======
+  placeholder: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/8.jpg
+  errorimg: https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/8.jpg
+>>>>>>> 71367e89612b373e8028b4a03e1756886159d409
 
 # 图片灯箱
 lightbox: true

@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<style>
+    body {
+        background-color: #000;
+        /*防止出现向下滚动条*/
+        overflow: hidden;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jenkins如何自动化部署前端项目(安装Jenkins) | 小杨的个人博客</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/hello.jpg">
+<link rel="apple-touch-icon" href="/img/hello.jpg">
+<meta name="apple-mobile-web-app-title" content="小杨的个人博客">
+<link rel="bookmark" href="/img/hello.jpg">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/hello.jpg">
+<meta name="description" content="a blog 一个分享技术与生活的博客">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+    <script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+    
+<script src="https://cdn.staticfile.org/twikoo/1.6.10/twikoo.all.min.js"></script>
+
+
+
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-7-30 00:00:00","lazyload":{"enable":false,"error":"https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/8.jpg"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://hexo-comm.wuwang.love"},"localsearch":{"preload":true,"path":"/search.xml"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":true};</script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body id="body">
+    
+                <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    
+        <div class="console-card-group">
+            <div class="console-card-group-left">
+                <div class="console-card" id="card-newest-comments" onclick="acrylic.hideConsole()">
+                    <div class="card-content">
+                        <div class="author-content-item-tips">互动</div>
+                        <div class="author-content-item-title">最新评论</div>
+                    </div>
+                    <div class="aside-list"></div>
+                </div>
+    
+            </div>
+            <div class="console-card-group-right">
+                <div class="console-card tags" onclick="acrylic.hideConsole()">
+                    <div class="card-content">
+                        <div class="author-content-item-tips">标签</div>
+                        <div class="author-content-item-title">寻找感兴趣的领域</div>
+                    </div>
+                    <div class="card-tag-cloud">
+                        
+                            <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 0.8rem; color: #d3d3d3">运维<sup>2</sup></a>
+                        
+                            <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.8rem; color: #d3d3d3">前端<sup>3</sup></a>
+                        
+                            <a href="/tags/%E6%94%AF%E4%BB%98/" style="font-size: 0.8rem; color: #d3d3d3">支付<sup>1</sup></a>
+                        
+                            <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/" style="font-size: 0.8rem; color: #d3d3d3">测试标签<sup>1</sup></a>
+                        
+                    </div>
+                </div>
+                <div class="console-card history" onclick="acrylic.hideConsole()">
+                    <ul class="card-archive-list">
+    
+     
+        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023/08/')" data-pjax-state=""><span
+            class="card-archive-list-date">2023/08</span>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span
+                    class="card-archive-list-count-unit">篇</span></div>
+            </a>
+        </li>
+        
+</ul>
+
+                </div>
+            </div>
+        </div>
+    
+    
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+                    
+            <div class="console-btn-item" id="consoleMusic" onclick="acrylic.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div>
+        
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+                    <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/logo2.png" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" href="/about" rel="external nofollow">
+                    <span> 关于</span>
+                </a>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 1em; color: #d3d3d3">运维
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1em; color: #d3d3d3">前端
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%94%AF%E4%BB%98/" style="font-size: 1em; color: #d3d3d3">支付
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/" style="font-size: 1em; color: #d3d3d3">测试标签
+                        <sup>1</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+                        
+                            <div class="post" id="body-wrap">
+                                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/logo2.png" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+                        <span class="heoicon">Mr.</span>
+                    
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">Jenkins如何自动化部署前端项目(安装Jenkins)</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fas fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fas fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fas fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 友链</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/fcircle/">
+                                <i class="fas fa-fish-fins"></i>
+                                <span> 友链鱼塘</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page not-child" href="/about" rel="external nofollow">
+                    <span> 关于</span>
+                </a>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="search-button">
+        <a class="site-page social-icon search" title="站内搜索"
+            href="javascript:void(0);" rel="external nofollow">
+            <i class="fas fa-magnifying-glass" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+    <div class="nav-button" id="nav-console">
+        <a class="console_switchbutton" onclick="acrylic.showConsole()"
+        title="显示中控台" href="javascript:void(0);" rel="external nofollow">
+        <i class="fas fa-bars-progress" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/image/6.jpg" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E8%BF%90%E7%BB%B4/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">运维</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">前端</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">Jenkins如何自动化部署前端项目(安装Jenkins)</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-08-01T11:33:00+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为河南">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>河南</span>
+                </span>
+            
+            
+            
+            
+                <span class="post-meta-commentcount" title="评论数">
+                    <i class="fa-solid fa-message"></i>
+                    <a href="#post-comment">
+                        <span id="twikoo-count"><i class="fas fa-spinner fa-pulse"></i></span>
+                    </a>
+                </span>
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                                    <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h3 id="Jenkins如何自动化部署前端项目"><a href="#Jenkins如何自动化部署前端项目" class="headerlink" title="Jenkins如何自动化部署前端项目"></a>Jenkins如何自动化部署前端项目</h3><h4 id="1、安装JDK-11-这里我们通过yum-系统Centos-8-4-64"><a href="#1、安装JDK-11-这里我们通过yum-系统Centos-8-4-64" class="headerlink" title="1、安装JDK 11 这里我们通过yum 系统Centos 8.4.64"></a>1、安装JDK 11 这里我们通过yum 系统Centos 8.4.64</h4><ol>
+<li>首先，确保你的系统已经更新到最新的软件包列表。可以运行以下命令来更新软件包列表：</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">sudo yum update<br></code></pre></td></tr></table></figure>
+
+<h6 id="安装JDK-11"><a href="#安装JDK-11" class="headerlink" title="安装JDK 11"></a>安装JDK 11</h6><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">sudo yum install java-<span class="hljs-number">11</span>-openjdk-devel<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>安装过程中，系统会提示你确认是否继续安装。输入<code>Y</code>并按下Enter键，然后等待安装完成。</p>
+</li>
+<li><p>安装完成后，可以使用以下命令来验证JDK 11的安装：</p>
+</li>
+</ol>
+<h6 id="验证Java是否安装成功"><a href="#验证Java是否安装成功" class="headerlink" title="验证Java是否安装成功"></a>验证Java是否安装成功</h6><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">java -version<br></code></pre></td></tr></table></figure>
+
+<p>输出应该显示类似以下内容：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmd">openjdk version &quot;<span class="hljs-number">11</span>.x.x&quot; <span class="hljs-number">2021</span>-XX-XX<br>OpenJDK Runtime Environment (build <span class="hljs-number">11</span>.x.x+XX-XXXX)<br>OpenJDK <span class="hljs-number">64</span>-Bit Server VM (build <span class="hljs-number">11</span>.x.x+XX-XXXX, mixed <span class="hljs-built_in">mode</span>, sharing)<br></code></pre></td></tr></table></figure>
+
+<h6 id="卸载Jdk"><a href="#卸载Jdk" class="headerlink" title="卸载Jdk"></a>卸载Jdk</h6><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cmd"># 查看CentOS自带JDK是否已安装:<br>yum list installed | grep java<br># 如果存在自带的jdk，删除自带的jdk<br>yum -y remove java-<span class="hljs-number">1</span>.<span class="hljs-number">8</span>.<span class="hljs-number">0</span>-openjdk*<br>yum -y remove tzdata-java.noarch<br></code></pre></td></tr></table></figure>
+
+<h4 id="2、安装Jenkins"><a href="#2、安装Jenkins" class="headerlink" title="2、安装Jenkins"></a>2、安装Jenkins</h4><p>首先，添加Jenkins的官方软件包源。打开终端窗口，并使用以下命令导入Jenkins的GPG密钥：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cmd">sudo wget -O /etc/yum.repos.d/jenkins.repo \<br><span class="hljs-function">    https://<span class="hljs-title">pkg.jenkins.io</span>/<span class="hljs-title">redhat</span>/<span class="hljs-title">jenkins.repo</span></span><br><span class="hljs-function"></span><br><span class="hljs-function"><span class="hljs-title">sudo</span> <span class="hljs-title">rpm</span> --<span class="hljs-title">import</span> <span class="hljs-title">https</span>://<span class="hljs-title">pkg.jenkins.io</span>/<span class="hljs-title">redhat</span>/<span class="hljs-title">jenkins.io</span>-2023.<span class="hljs-title">key</span></span><br></code></pre></td></tr></table></figure>
+
+<p>然后安装  安装过程中，系统会提示你确认是否继续安装。输入<code>Y</code>并按下Enter键，然后等待安装完成 </p>
+<p><code>sudo yum install jenkins</code></p>
+<h6 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h6><p>您可以使用以下命令启动 Jenkins 服务：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">sudo systemctl <span class="hljs-built_in">start</span> jenkins<br></code></pre></td></tr></table></figure>
+
+<h6 id="您可以使用以下命令检查-Jenkins-服务的状态："><a href="#您可以使用以下命令检查-Jenkins-服务的状态：" class="headerlink" title="您可以使用以下命令检查 Jenkins 服务的状态："></a>您可以使用以下命令检查 Jenkins 服务的状态：</h6><p><code>sudo systemctl status jenkins</code></p>
+<p>如下：</p>
+<p><img src="/img/demo.png" alt="图"></p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                    <div class="post-reward">
+    <div class="reward-button button--animated" title="赞赏作者">
+        <script>
+            if (utils.isMobile()) { const showReward=()=> {
+                const rewardMain = document.querySelector('.reward-main');
+                rewardMain.style.display = 'flex';
+                document.addEventListener('touchstart', hideReward);
+                };
+                const hideReward = () => {
+                const rewardMain = document.querySelector('.reward-main');
+                rewardMain.style.display = 'none';
+                document.removeEventListener('touchstart', hideReward);
+                };
+                const rewardButton = document.querySelector('.reward-button');
+                rewardButton.addEventListener('touchstart', event => {
+                event.stopPropagation();
+                showReward();
+                });
+                }
+          </script>
+        <i class="fas fa-hamburger"></i> 
+        打赏作者
+    </div>
+    <div class="reward-main">
+        <ul class="reward-all">
+            <span class="reward-title">感谢你赐予我前进的力量</span>
+            <ul class="reward-group">
+                
+                    <li class="reward-item">
+                        <a href="/img/wechat.png" target="_blank">
+                            <img class="post-qr-code-img" src="/img/wechat.png" alt="微信">
+                        </a>
+                        <div class="post-qr-code-desc">微信</div>
+                    </li>
+                
+                
+                    <li class="reward-item">
+                        <a href="/img/alipay.jpg" target="_blank">
+                            <img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝">
+                        </a>
+                        <div class="post-qr-code-desc">支付宝</div>
+                    </li>
+                
+            </ul>
+            <a class="reward-main-btn" href="/null">
+                <div class="reward-text">赞赏者名单</div>
+                <div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div>
+            </a>
+        </ul>
+    </div>
+</div>
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="http://example.com/2023/08/01/jenkins/">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "http://example.com/2023/08/01/jenkins/");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=Jenkins如何自动化部署前端项目(安装Jenkins)&amp;url=http://example.com/2023/08/01/jenkins/&amp;pic=/img/image/6.jpg"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E8%BF%90%E7%BB%B4/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                运维
+                                <span class="tagsPageCount">2</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%89%8D%E7%AB%AF/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                前端
+                                <span class="tagsPageCount">3</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>Jenkins如何自动化部署前端项目(安装Jenkins)</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/08/01/jenkins/">http://example.com/2023/08/01/jenkins/</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">小杨的个人博客</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2023/08/03/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">关于微信前端支付在微信环境如何支付</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2023/08/01/jenkins2/">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">Jenkins如何自动化部署前端项目(2)</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+        
+            <div id="post-comment">
+    <div class="comment-head">
+        <div class="comment-headline">
+            <i class="fas fa-message fa-fw"></i>
+            <span> 评论</span>
+        </div>
+    </div>
+    <div class="comment-wrap">
+        <div id="comment"></div>
+        <script>
+    async function initComment(){
+        var initOptions = Object.assign(
+            {"envId":"https://hexo-comm.wuwang.love","path":"window.location.pathname"},
+            {
+                el: '#comment',
+                onCommentLoaded: function() {
+                    GLOBALCONFIG.lightbox && acrylic.lightbox('#article-container img, #twikoo .tk-content img:not(.tk-owo-emotion)') 
+                }
+            }
+        )
+        await twikoo.init(initOptions)
+        
+            var countOptions = Object.assign(
+                {"envId":"https://hexo-comm.wuwang.love","path":"window.location.pathname"},
+                { 
+                    urls: [window.location.pathname],
+                    includeReply: false
+                }
+            )
+            const res = await twikoo.getCommentsCount(countOptions)
+            try{
+                document.getElementById('twikoo-count').innerText = res[0].count
+            }catch (e) {
+                document.getElementById('twikoo-count').innerText = '加载错误'
+            }
+             
+    }
+</script>
+    </div>
+</div>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <img class="avatar-img entered loaded" data-lazy-src="https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/8.jpg" onerror="this.onerror=null;this.src='https://hexo-1314120196.cos.ap-nanjing.myqcloud.com/hexo//img/image/8.jpg'" alt="avatar" data-ll-status="loaded" src="">
+            <div class="author-info__name">
+                Yang.Mr
+            </div>
+            <div class="author-info__description">这有关于<b>开发</b>、<b>技术</b>相关的问题和看法，还有对于动漫的一些<b>杂评</b>。<br>相信你可以在这里找到对你有用的知识和教程。</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">个人主页</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/wuqi-y/hexo-blog-gitee-clone" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" href="/wuqi_y@163.com" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE"><span class="toc-text">Jenkins如何自动化部署前端项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85JDK-11-%E8%BF%99%E9%87%8C%E6%88%91%E4%BB%AC%E9%80%9A%E8%BF%87yum-%E7%B3%BB%E7%BB%9FCentos-8-4-64"><span class="toc-text">1、安装JDK 11 这里我们通过yum 系统Centos 8.4.64</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%89%E8%A3%85JDK-11"><span class="toc-text">安装JDK 11</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81Java%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-text">验证Java是否安装成功</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BDJdk"><span class="toc-text">卸载Jdk</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85Jenkins"><span class="toc-text">2、安装Jenkins</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">启动命令</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%82%A8%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%E6%A3%80%E6%9F%A5-Jenkins-%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="toc-text">您可以使用以下命令检查 Jenkins 服务的状态：</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+            
+                    <div class="aside-list-item">
+                        <a class="thumbnail" href="/2023/08/10/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0jenkins/" title="测试jenkins自动化">
+                            <img alt="测试jenkins自动化" style="filter: blur(45px);" src=""
+                                data-echo="/img/image/4.jpg">
+                        </a>
+                        <div class="content">
+                            
+                                <a class="article-recent_post_categories" href="/2023/08/10/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0jenkins/">
+                                    测试分类
+                                </a>
+                                
+                                    <a class="title" href="/2023/08/10/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0jenkins/" title="测试jenkins自动化">
+                                        测试jenkins自动化
+                                    </a>
+                        </div>
+                    </div>
+                    
+                        
+                    <div class="aside-list-item">
+                        <a class="thumbnail" href="/2023/08/09/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%20copy/" title="Hello World">
+                            <img alt="Hello World" style="filter: blur(45px);" src=""
+                                data-echo="/img/image/2.jpg">
+                        </a>
+                        <div class="content">
+                            
+                                    <a class="title" href="/2023/08/09/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%20copy/" title="Hello World">
+                                        Hello World
+                                    </a>
+                        </div>
+                    </div>
+                    
+                        
+                    <div class="aside-list-item">
+                        <a class="thumbnail" href="/2023/08/03/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" title="关于微信前端支付在微信环境如何支付">
+                            <img alt="关于微信前端支付在微信环境如何支付" style="filter: blur(45px);" src=""
+                                data-echo="/img/image/9.jpg">
+                        </a>
+                        <div class="content">
+                            
+                                    <a class="title" href="/2023/08/03/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" title="关于微信前端支付在微信环境如何支付">
+                                        关于微信前端支付在微信环境如何支付
+                                    </a>
+                        </div>
+                    </div>
+                    
+                        
+                    <div class="aside-list-item">
+                        <a class="thumbnail" href="/2023/08/01/jenkins/" title="Jenkins如何自动化部署前端项目(安装Jenkins)">
+                            <img alt="Jenkins如何自动化部署前端项目(安装Jenkins)" style="filter: blur(45px);" src=""
+                                data-echo="/img/image/6.jpg">
+                        </a>
+                        <div class="content">
+                            
+                                <a class="article-recent_post_categories" href="/2023/08/01/jenkins/">
+                                    前端
+                                </a>
+                                
+                                    <a class="title" href="/2023/08/01/jenkins/" title="Jenkins如何自动化部署前端项目(安装Jenkins)">
+                                        Jenkins如何自动化部署前端项目(安装Jenkins)
+                                    </a>
+                        </div>
+                    </div>
+                    
+                        
+                    <div class="aside-list-item">
+                        <a class="thumbnail" href="/2023/08/01/jenkins2/" title="Jenkins如何自动化部署前端项目(2)">
+                            <img alt="Jenkins如何自动化部署前端项目(2)" style="filter: blur(45px);" src=""
+                                data-echo="/img/image/9.jpg">
+                        </a>
+                        <div class="content">
+                            
+                                    <a class="title" href="/2023/08/01/jenkins2/" title="Jenkins如何自动化部署前端项目(2)">
+                                        Jenkins如何自动化部署前端项目(2)
+                                    </a>
+                        </div>
+                    </div>
+                    
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.thumbnail img').forEach(dom => {
+        dom.addEventListener('load', () => {
+            dom.style.filter = 'blur(0px)'
+        })
+    })
+</script>
+     
+        
+    </div>
+</div> 
+</main>
+                                        <footer id="footer">
+                                            <div id="footer_deal">
+    
+        <a class="deal_link" target="_blank" href="https://github.com/wuqi-y/hexo-blog-gitee-clone" rel="external nofollow noopener"
+            title="Github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+        
+        <a class="deal_link" href="/wuqi_y@163.com" rel="external nofollow"
+            title="Mail">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+        
+            <img class="footer_mini_logo" src="/img/logo2.png" title="返回顶部" onclick="acrylic.toTop()">
+            
+</div>
+<div id="heo-footer">
+    
+        <div class="footer-group">
+            <h3 class="footer-title">
+                导航
+            </h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" href="/archives/" title="文章归档"
+                        rel="noopener external nofollow noreferrer">
+                        文章归档
+                    </a>
+                    
+                    <a class="footer-item" href="/categories/" title="文章分类"
+                        rel="noopener external nofollow noreferrer">
+                        文章分类
+                    </a>
+                    
+                    <a class="footer-item" href="/tags/" title="文章标签"
+                        rel="noopener external nofollow noreferrer">
+                        文章标签
+                    </a>
+                    
+                    <a class="footer-item" href="/links/" title="友链"
+                        rel="noopener external nofollow noreferrer">
+                        友链
+                    </a>
+                    
+            </div>
+        </div>
+        
+        <div class="footer-group">
+            <h3 class="footer-title">
+                服务
+            </h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" target="_blank" href="https://51.la/" title="51la统计"
+                        rel="noopener external nofollow noreferrer noopener">
+                        51la统计
+                    </a>
+                    
+                    <a class="footer-item" target="_blank" href="https://ql.tianli0.top/" title="TianliCDN"
+                        rel="noopener external nofollow noreferrer noopener">
+                        TianliCDN
+                    </a>
+                    
+            </div>
+        </div>
+        
+        <div class="footer-group">
+            <h3 class="footer-title">
+                推荐友链
+            </h3>
+            <div class="footer-links">
+                
+                    <a class="footer-item" target="_blank" href="https://blog.zhheo.com/" title="Heo"
+                        rel="noopener external nofollow noreferrer noopener">
+                        Heo
+                    </a>
+                    
+            </div>
+        </div>
+        
+            
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2023 - 2023 By
+                            <a class="footer-section-link" href="/" rel="external nofollow">
+                                Yang.Mr
+                            </a>
+                            <!-- <a class="footer-section-link" href="https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic-Next" rel="external nofollow" target="_blank"> Theme By Acrylic-Next</a> -->
+                            <a class="footer-section-link" href="" rel="external nofollow"
+                                target="_blank"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="">订阅</a>
+            
+                <a class="footer-section-link" target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index"
+                    rel="noopener external nofollow noreferrer noopener">
+                    豫ICP备2023004284号
+                </a>
+                
+                    <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/"
+                        title="cc协议">
+                        <i class="fas fa-closed-captioning"></i>
+                    </a>
+        </div>
+    </div>
+</div>
+                                        </footer>
+                            </div>
+                            
+                                    <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/echo.js"></script>
+    <script>
+        echo.init({
+            offset: 10,
+            throttle: 250,
+            unload: false,
+            debounce: false,
+            callback: function (element, op) {
+                // console.log(element, 'has been', op + 'ed')
+            }
+        });
+        window.addEventListener('popstate', function (event) {
+            // 处理路由变化的逻辑
+            echo.init({
+                offset: 10,
+                throttle: 250,
+                unload: false,
+                debounce: false,
+                callback: function (element, op) {
+                    // console.log(element, 'has been', op + 'ed')
+                }
+            });
+        });
+
+
+    </script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+    
+        <script async src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+     
+</div>
+
+    
+<link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+
+    
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+
+    
+<script src="/lib/meting.min.js"></script>
+
+    <script>
+        var meting_api = "https://music.startly.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";
+    </script>
+
+
+    
+<script src="/js/extend/covercolor/local.js"></script>
+
+        
+
+
+    
+<script src="/js/extend/console/comment.js"></script>
+
+
+
+        <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+            
+</div>
+                                        
+    <div id="local-search">
+    <div class="search-dialog">
+        <nav class="search-nav">
+            <span class="search-dialog-title">搜索</span>
+            <button class="search-close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+        <div id="loading-database">
+            <i class="fas fa-spinner fa-pulse"></i>
+            <span>加载中</span>
+        </div>
+        <div class="search-wrap">
+            <div class="search-box">
+                <input class="search-box-input" placeholder="输入关键词快速查找" type="text" id="search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+            <div id="loading-status"></div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <div id="search-mask"></div>
+</div>
+    
+<link rel="stylesheet" href="/css/search/local-search.css">
+
+    
+<script src="/js/extend/search/local-search.js"></script>
+
+
+     
+                                            <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="6845593381" server="netease" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+
+</body>
+
+</html>
+<script>const posts=["2023/08/10/测试文章jenkins/","2023/08/09/微信支付 copy/","2023/08/03/微信支付/","2023/08/01/jenkins/","2023/08/01/jenkins2/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

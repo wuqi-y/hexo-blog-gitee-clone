@@ -89,6 +89,15 @@
                 const image = new Image();
                 image.onload = () => document.querySelector('#banner').style.filter = 'blur(0px)'
                 image.src = '<%= theme.hometop.middleBanderUrl %>'
+                echo.init({
+                    offset: 10,
+                    throttle: 250,
+                    unload: false,
+                    debounce: false,
+                    callback: function (element, op) {
+                        // console.log(element, 'has been', op + 'ed')
+                    }
+                });
             }
             window.addEventListener('popstate', loadBannerHandel());
             loadBannerHandel()

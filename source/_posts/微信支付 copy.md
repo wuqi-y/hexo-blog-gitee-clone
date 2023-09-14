@@ -4,13 +4,13 @@ categories: []
 date: ''
 tags: []
 title: Hello World
-updated: Tue, 08 Aug 2023 02:24:27 GMT
+updated: Thu, 14 Sep 2023 02:06:07 GMT
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
 ## Quick Start
 
-### Create a new post
+### Create a new post 00
 
 ```bash
 $ hexo new "My New Post"
@@ -41,6 +41,5 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
-
 
 测试

@@ -701,7 +701,7 @@ a.bber-reply {
 }
 
 .main-container .cloud_1 {
-  background: url('/img/image/wave1.png') repeat-x;
+  /* background: url('/img/image/wave1.png') repeat-x; */
   width: 400%;
   height: 80px;
   position: absolute;
@@ -713,7 +713,7 @@ a.bber-reply {
 }
 
 .main-container .cloud_2 {
-  background: url('/img/image/wave1.png');
+  /* background: url('/img/image/wave1.png'); */
   width: 400%;
   height: 80px;
   position: absolute;

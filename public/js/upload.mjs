@@ -50,11 +50,35 @@ function getFilesInFolder(folderPath) {
 }
 
 // 调用函数并传入文件夹路径
-getFilesInFolder(path.resolve('./themes/Acrylic/source/img/image/'));
+// getFilesInFolder(path.resolve('./themes/Acrylic/source/img/image/'));
 
-Promise.all(uploadArr).then(() => {
-  console.log('全部上传成功');
-})
+uploadArr.length &&
+  console.log('上传中，请稍等...') &&
+    Promise.all(uploadArr).then(() => {
+      console.log('全部上传成功');
+    })
+
+
+cos.getObjectUrl(
+  {
+    Bucket: process.env.BUCKET, /* 必须 */
+    Region: process.env.REGION,    /* 必须 */
+    Key: `hexo/img/image/0.jpg`,              /* 必须 */
+    Sign: true,
+    Expires: 60,
+    /* 传入的请求参数需与实际请求相同，能够防止用户篡改此 HTTP 请求的参数 */
+    // Query: {
+    //   'imageMogr2/thumbnail/200x/': '',
+    // },
+    // /* 传入的请求头部需包含在实际请求中，能够防止用户篡改签入此处的 HTTP 请求头部 */
+    Headers: {
+      host: 'hexo-1314120196.cos.ap-nanjing.myqcloud.com', /* 指定 host 访问，非指定的 host 访问会报错403 */
+    },
+  },
+  function (err, data) {
+    console.log(err || data.Url);
+  }
+)
 
 // 执行命令   node .\themes\Acrylic\source\js\upload.mjs
 

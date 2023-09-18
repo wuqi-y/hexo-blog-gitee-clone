@@ -1,4 +1,22 @@
+// 设置所有的src
 
+
+const setImgSrc = () => {
+    const imgs = document.querySelectorAll('img')
+    const banner = document.querySelector('#banner')
+    console.log(banner);
+
+    const regexPattern = /\/img\/image\/\d+/
+
+    imgs.forEach(img => {
+        if (regexPattern.test(img.src)) {
+            console.dir(img.src);
+        } else if(regexPattern.test(img.dataset.echo)) {
+            console.dir(img.dataset.echo);
+        }
+    })
+}
+// setImgSrc()
 
 function setFixed (el) {
     if (!el) return
@@ -62,6 +80,15 @@ if (location.pathname === '/') {
     },1500)
 }
 
+
+/**
+ * 雪花
+ */
+
+
+/**
+ * 雪花
+ */
 
 //点击下拉
 const downClickHandel = () => {

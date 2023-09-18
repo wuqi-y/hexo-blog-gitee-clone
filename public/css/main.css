@@ -5423,8 +5423,9 @@ a.console_switchbutton {
 
 /* footer背景色 */
 #footer {
-  background: linear-gradient(180deg, var(--heo-card-bg-none) 0%, var(--heo-card-bg) 25%);
-  margin-top: 1rem;
+  /* background: linear-gradient(180deg, var(--heo-card-bg-none) 0%, var(--heo-card-bg) 25%); */
+  background-color: #fff;
+  /* margin-top: 1rem; */
   display: flex;
   flex-direction: column;
 }

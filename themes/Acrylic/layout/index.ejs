@@ -21,26 +21,32 @@
         </div>
     </div>
     <%} %>
-        <div id="home_top">
-            <% if(theme.hometop.bbtime){ %>
-                <%- partial('partial/compoment/hometop/bbTimeList') %>
-                    <% } %>
-                        <% if(theme.hometop.banner.enable){ %>
-                            <%- partial('partial/hometop') %>
-                                <% } %>
-        </div>
-        <main class="layout" id="content-inner">
-            <div class="recent-posts" id="recent-posts">
-                <div id="category-bar">
-                    <%- partial('partial/compoment/home/homeCategoryBar', {select:false}) %>
-                </div>
-                <% for (const item of page.posts.sort('-date').data){ %>
-                    <%- partial('partial/compoment/home/postList', {post: item}) %>
+        <div class="main-container" style="background-color: #f7f9fe;">
+            <div id="home_top" style="background-color: #f7f9fe;">
+                <% if(theme.hometop.bbtime){ %>
+                    <%- partial('partial/compoment/hometop/bbTimeList') %>
                         <% } %>
-                            <%- partial('partial/compoment/mixins/pagination') %>
+                            <% if(theme.hometop.banner.enable){ %>
+                                <%- partial('partial/hometop') %>
+                                    <% } %>
             </div>
-            <%- partial('partial/compoment/aside/aside') %>
-        </main>
+            <!-- 云 -->
+            <div class="cloud_1"></div>
+            <div class="cloud_2"></div>
+
+            <main class="layout" id="content-inner" style="background-color: #f7f9fe;">
+                <div class="recent-posts" id="recent-posts">
+                    <div id="category-bar">
+                        <%- partial('partial/compoment/home/homeCategoryBar', {select:false}) %>
+                    </div>
+                    <% for (const item of page.posts.sort('-date').data){ %>
+                        <%- partial('partial/compoment/home/postList', {post: item}) %>
+                            <% } %>
+                                <%- partial('partial/compoment/mixins/pagination') %>
+                </div>
+                <%- partial('partial/compoment/aside/aside') %>
+            </main>
+        </div>
 
         <style>
             #banner {
@@ -87,7 +93,12 @@
         <script>
             function loadBannerHandel () {
                 const image = new Image();
-                image.onload = () => document.querySelector('#banner').style.filter = 'blur(0px)'
+                image.onload = () => {
+                    document.querySelector('#banner').style.filter = 'blur(0px)'
+                    const randomNum = Math.floor(Math.random() * 12);
+                    const randomUrl = `https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/${randomNum}.jpg`
+                    document.querySelector('#banner').style.backgroundImage = `url(${randomUrl})`
+                }
                 image.src = '<%= theme.hometop.middleBanderUrl %>'
                 echo.init({
                     offset: 10,

@@ -2,14 +2,14 @@
 abbrlink: ''
 categories: []
 comment: true
-cover: https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/9.jpg
+cover: /img/image/9.jpg
 date: '2023-08-01 11:33:00'
 recommend: true
 tags:
 - 运维
 - 前端
 title: Jenkins如何自动化部署前端项目(2)
-updated: Sat, 26 Aug 2023 16:22:26 GMT
+updated: 2023-10-24T17:56:29.223+8:0
 ---
 ### Jenkins如何自动化部署前端项目
 
@@ -73,7 +73,6 @@ updated: Sat, 26 Aug 2023 16:22:26 GMT
 
 安装 Publish over SSH 插件
 ![](/img/j/13.png)
-
 
 #### 必须要配置name和email，为了让每一次提交的代码都能配置到用户
 

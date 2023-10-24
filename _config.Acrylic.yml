@@ -69,7 +69,7 @@ nav:
 hometop:
   bbtime: true
   middleBander: true #自定义中部banner是否显示
-  middleBanderUrl: https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/7.jpg
+  middleBanderUrl: /img/image/7.jpg
   text: 我思故我在
   banner:
     enable: true
@@ -131,7 +131,7 @@ hometop:
     sup: 置顶文章
     title: 让Acrylic成为您的Hexo主题
     url: /
-    img: https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/11.jpg
+    img: /img/image/11.jpg
     color: '#8d6338'
     recommend: true
 
@@ -268,15 +268,15 @@ about: true
 
 # 404页面
 errorpage:
-  img: https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/8.jpg
+  img: /img/image/8.jpg
   text: =awa= 页面走丢了
   recommendList: true
 
 # 懒加载
 lazyload:
   enable: false
-  placeholder: https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/8.jpg
-  errorimg: https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/8.jpg
+  placeholder: /img/image/8.jpg
+  errorimg: /img/image/8.jpg
 
 # 图片灯箱
 lightbox: true

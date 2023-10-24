@@ -237,7 +237,7 @@ page:
   error: true
   tags: true
   categories: true
-  cover:/img/image/9.jpg
+  cover: /img/image/9.jpg
 
 
 # 文章页默认设置

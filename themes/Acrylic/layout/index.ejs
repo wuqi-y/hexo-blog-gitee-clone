@@ -96,7 +96,7 @@
                 image.onload = () => {
                     document.querySelector('#banner').style.filter = 'blur(0px)'
                     const randomNum = Math.floor(Math.random() * 12);
-                    const randomUrl = `https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/${randomNum}.jpg`
+                    const randomUrl = `/img/image/${randomNum}.jpg`
                     document.querySelector('#banner').style.backgroundImage = `url(${randomUrl})`
                 }
                 image.src = '<%= theme.hometop.middleBanderUrl %>'

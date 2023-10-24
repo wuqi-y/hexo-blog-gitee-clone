@@ -3,7 +3,7 @@ abbrlink: ''
 categories:
 - 前端
 comment: true
-cover: https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/6.jpg
+cover: /img/image/6.jpg
 date: '2023-08-01 11:33:00'
 recommend: true
 tags:
@@ -11,7 +11,7 @@ tags:
 - 前端
 title: Jenkins如何自动化部署前端项目(安装Jenkins)
 top: true
-updated: Sat, 26 Aug 2023 16:05:39 GMT
+updated: 2023-10-24T17:57:33.719+8:0
 ---
 ### Jenkins如何自动化部署前端项目
 
@@ -30,8 +30,7 @@ sudo yum install java-11-openjdk-devel
 ```
 
 2. 安装过程中，系统会提示你确认是否继续安装。输入`Y`并按下Enter键，然后等待安装完成。
-
-4. 安装完成后，可以使用以下命令来验证JDK 11的安装：
+3. 安装完成后，可以使用以下命令来验证JDK 11的安装：
 
 ###### 验证Java是否安装成功
 
@@ -68,7 +67,7 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo \
 sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
 ```
 
-然后安装  安装过程中，系统会提示你确认是否继续安装。输入`Y`并按下Enter键，然后等待安装完成 
+然后安装  安装过程中，系统会提示你确认是否继续安装。输入`Y`并按下Enter键，然后等待安装完成
 
 `sudo yum install jenkins`
 

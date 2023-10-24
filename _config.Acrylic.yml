@@ -237,13 +237,13 @@ page:
   error: true
   tags: true
   categories: true
-  cover: https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/9.jpg
+  cover:/img/image/9.jpg
 
 
 # 文章页默认设置
 post:
   default:
-    cover: https://wuqi-y.oss-cn-nanjing.aliyuncs.com/hexo/img/image/2.jpg
+    cover: /img/image/2.jpg
     locate: 河南
     copyright: 原创
   meta:

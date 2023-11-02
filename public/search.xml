@@ -131,7 +131,7 @@
 <figure class="highlight cmd"><table><tr><td class="code"><pre><code class="hljs cmd">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;<br></code></pre></td></tr></table></figure>
 
 <ol start="2">
-<li>输入完毕后按回车，到底即可，此时 c盘——用户——用户名——.ssh<a href="https://so.csdn.net/so/search?q=%E6%96%87%E4%BB%B6%E5%A4%B9&spm=1001.2101.3001.7020">文件夹</a> 里面生成好了“id_rsa”和“id_rsa.pub”文件（<em>不一定是一样的位置，会有提示请以自己的目录为准</em>）。</li>
+<li>输入完毕后按回车，到底即可，此时 c盘——用户——用户名——.ssh文件夹 里面生成好了“id_rsa”和“id_rsa.pub”文件（<em>不一定是一样的位置，会有提示请以自己的目录为准</em>）。</li>
 <li>将公钥添加到需要访问的服务器上的authorized_keys文件中。</li>
 <li>使用私钥进行SSH连接。</li>
 </ol>

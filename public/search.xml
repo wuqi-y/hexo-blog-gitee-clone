@@ -140,4 +140,25 @@
         <tag>windowns</tag>
       </tags>
   </entry>
+  <entry>
+    <title>如何查看npm的镜像信息</title>
+    <url>/2023/11/02/%E6%9F%A5%E7%9C%8Bnpm%E7%9A%84%E9%95%9C%E5%83%8F%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<p>要查看npm的镜像信息，你可以使用<code>npm config get registry</code>命令。这个命令会返回当前配置的npm镜像地址。</p>
+<p>如果你想要切换npm的镜像源，有以下几种选择：</p>
+<ul>
+<li><code>npm config set registry &lt;registry-url&gt;</code>：将npm的镜像源设置为指定的<code>&lt;registry-url&gt;</code>。</li>
+<li><code>npm config delete registry</code>：删除已设置的npm镜像源，恢复默认的官方源。</li>
+</ul>
+<p>常见的npm镜像源包括：</p>
+<ul>
+<li>官方源（<a href="https://registry.npmjs.org/%EF%BC%89">https://registry.npmjs.org/）</a></li>
+<li>淘宝NPM镜像源（<a href="https://registry.npm.taobao.org/%EF%BC%89">https://registry.npm.taobao.org/）</a></li>
+<li>cnpmjs镜像源（<a href="https://r.cnpmjs.org/%EF%BC%89">https://r.cnpmjs.org/）</a></li>
+</ul>
+<p>使用合适的npm镜像源可以加快依赖包的下载速度，提高开发效率。</p>
+]]></content>
+      <tags>
+        <tag>npm</tag>
+      </tags>
+  </entry>
 </search>

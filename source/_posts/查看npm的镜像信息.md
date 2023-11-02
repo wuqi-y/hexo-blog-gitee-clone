@@ -1,12 +1,12 @@
 ---
 abbrlink: ''
 categories: []
-cover: /img/banner/8.jpg
+cover: /img/image/8.jpg
 date: '2023-11-02T10:01:59.143312+08:00'
 tags:
 - npm
 title: 如何查看npm的镜像信息
-updated: 2023-11-2T10:1:58.513+8:0
+updated: 2023-11-2T10:4:11.149+8:0
 ---
 要查看npm的镜像信息，你可以使用`npm config get registry`命令。这个命令会返回当前配置的npm镜像地址。
 

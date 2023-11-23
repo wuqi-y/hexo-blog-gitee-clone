@@ -161,4 +161,28 @@
         <tag>npm</tag>
       </tags>
   </entry>
+  <entry>
+    <title>如何让部署Qexo后台</title>
+    <url>/2023/11/13/%E5%A6%82%E4%BD%95%E8%AE%A9%E9%83%A8%E7%BD%B2Qexo%E5%90%8E%E5%8F%B0/</url>
+    <content><![CDATA[<h4 id="首先查看Python和pip3的版本，如果不对应最好安装如图中的版本不容易出错"><a href="#首先查看Python和pip3的版本，如果不对应最好安装如图中的版本不容易出错" class="headerlink" title="首先查看Python和pip3的版本，如果不对应最好安装如图中的版本不容易出错"></a>首先查看Python和pip3的版本，如果不对应最好安装如图中的版本不容易出错</h4><p><img src="/img/a/py_v.png" alt="python和pip3版本"></p>
+<h3 id="编辑配置"><a href="#编辑配置" class="headerlink" title="编辑配置"></a>编辑配置</h3><p>以使用 Mysql 为例, 确认好安装相关依赖后在<code>manage.py</code>的同级目录下创建并修改 <code>configs.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pymysql<br>pymysql.install_as_MySQLdb()<br>DOMAINS = [<span class="hljs-string">&quot;127.0.0.1&quot;</span>, <span class="hljs-string">&quot;yoursite.com&quot;</span>]<br>DATABASES = &#123;<br>    <span class="hljs-string">&#x27;default&#x27;</span>: &#123;<br>            <span class="hljs-string">&#x27;ENGINE&#x27;</span>: <span class="hljs-string">&#x27;django.db.backends.mysql&#x27;</span>,<br>            <span class="hljs-string">&#x27;NAME&#x27;</span>: <span class="hljs-string">&#x27;qexo&#x27;</span>,<br>            <span class="hljs-string">&#x27;USER&#x27;</span>: <span class="hljs-string">&#x27;root&#x27;</span>,<br>            <span class="hljs-string">&#x27;PASSWORD&#x27;</span>: <span class="hljs-string">&#x27;password&#x27;</span>,<br>            <span class="hljs-string">&#x27;HOST&#x27;</span>: <span class="hljs-string">&#x27;127.0.0.1&#x27;</span>,<br>            <span class="hljs-string">&#x27;PORT&#x27;</span>: <span class="hljs-string">&#x27;3306&#x27;</span>,<br>            <span class="hljs-string">&#x27;OPTIONS&#x27;</span>: &#123;<br>                <span class="hljs-string">&quot;init_command&quot;</span>: <span class="hljs-string">&quot;SET sql_mode=&#x27;STRICT_TRANS_TABLES&#x27;&quot;</span><br>            &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>然后在项目根目录执行如下</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><code class="hljs cmd">pip3 install -r requirements.txt<br>python3 manage.py makemigrations<br>python3 manage.py migrate<br>python3 manage.py runserver <span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>:<span class="hljs-number">8000</span> --noreload<br></code></pre></td></tr></table></figure>
+
+
+<h5 id="如果pip3-install-r-requirements-txt-时报错了，查看此文件夹，替换如下requirements-txt"><a href="#如果pip3-install-r-requirements-txt-时报错了，查看此文件夹，替换如下requirements-txt" class="headerlink" title="如果pip3 install -r requirements.txt 时报错了，查看此文件夹，替换如下requirements.txt"></a>如果<code>pip3 install -r requirements.txt</code> 时报错了，查看此文件夹，替换如下requirements.txt</h5><figure class="highlight cmd"><table><tr><td class="code"><pre><code class="hljs cmd">Django==<span class="hljs-number">3</span>.<span class="hljs-number">2</span>.<span class="hljs-number">18</span><br>PyMySQL<br>boto3<br>requests<br>PyGithub<br>python-gitlab<br>html2text<br>PyYAML<br>urllib3<br>Markdown<br>djongo<br>django-cors-headers<br>pymongo<br>dnspython<br>sqlparse<br>psycopg2-binary<br>cryptography<br>pyopenssl<br>oss2<br>beautifulsoup4<br></code></pre></td></tr></table></figure>
+
+<p>最后在ip下加8000端口查看能否进入项目</p>
+<h4 id="常驻项目进程"><a href="#常驻项目进程" class="headerlink" title="常驻项目进程"></a>常驻项目进程</h4><p><code>nohup python3 manage.py runserver 0.0.0.0:8000 --noreload</code></p>
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>qexo</tag>
+      </tags>
+  </entry>
 </search>
